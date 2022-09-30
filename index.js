@@ -1,5 +1,10 @@
+let height;
+let body = document.getElementById('body');
+
 const callback = (entries) => {
     console.log(entries);
+    height = entries[0].rootBounds.height;
+    body.style.height = height + 'px';
 }
 
 const options = {
@@ -7,4 +12,4 @@ const options = {
 };
 
 const vigilante = new IntersectionObserver(callback,options);
-vigilante.observe(div)
+vigilante.observe(body);
